@@ -4,7 +4,7 @@ bus_t bus = {NULL, NULL, NULL, 0};
 
 /**
  * main - main function
- * 
+ *
  * @argc: argument count
  * @argv: argument vector
 */
@@ -38,10 +38,10 @@ int main(int argc, char *argv[])
         nread = getline(&content, &len, file);
         bus.content = content;
         if (nread > 0)
-            execute(content, &head, count, file);
+            exec_opcode(content, &head, count, file);
         free(content);
     }
-    // free stack
+    free_stack(head);
     fclose(file);
     return (0);
 
